@@ -178,47 +178,33 @@ for (k=0;k<2;k++) {
 finalid = Math.floor(Math.random() * (3-1)) + 1
 if (finalid==1){
   //halfeqn1 is running forwards, halfeqn2 running backwards
-  finaleqn = [];
-  reduction_potential = 0;
-  oxidation_potential = 0;
-  reduction_eqn = [];
-  oxidation_eqn = [];
+  finaleqn = [adjustedeqn1coefficients[0], halfeqn1["LHS"],"+",adjustedeqn2coefficients[adjustedeqn2coefficients.length-1],halfeqn2["RHS"], "\\leftrightharpoons",adjustedeqn1coefficients[adjustedeqn1coefficients.length-1], halfeqn1["RHS"], "+", adjustedeqn2coefficients[0], halfeqn2["LHS"]];
+  reduction_potential = halfeqn1["E0"];
+  oxidation_potential = halfeqn2["E0"];
+  reduction_eqn = heqn1;
+  oxidation_eqn = heqn2;
   DeltaE = reduction_potential - oxidation_potential;
 } else {
   //halfeqn2 running forwards, halfeqn1 running backwards
-  finaleqn = [];
-  reduction_potential = 0;
-  oxidation_potential = 0;
-  reduction_eqn = [];
-  oxidation_eqn = [];
+  finaleqn = [adjustedeqn1coefficients[adjustedeqn1coefficients.length-1], halfeqn1["RHS"],"+",adjustedeqn2coefficients[0],halfeqn2["LHS"], "\\leftrightharpoons", adjustedeqn1coefficients[0], halfeqn1["LHS"], "+", adjustedeqn2coefficients[adjustedeqn2coefficients.length-1], halfeqn2["RHS"]];
+  reduction_potential = halfeqn2["E0"];
+  oxidation_potential = halfeqn1["E0"];
+  reduction_eqn = heqn2;
+  oxidation_eqn = heqn1;
   DeltaE = reduction_potential - oxidation_potential;
 }
 var emolprod = (halfeqn1["emol"]*halfeqn2["emol"])/HCF;
 
-
-/*Work out which "way around" each half equation should go and construct string arrays accordingly
-if (halfeqn1["E0"] > halfeqn2["E0"]) {
-  finaleqn = [adjustedeqn1coefficients[0],halfeqn1["LHS"]," + ",adjustedeqn2coefficients[adjustedeqn2coefficients.length -1],halfeqn2["RHS"]," \\rightleftharpoons ",adjustedeqn1coefficients[adjustedeqn1coefficients.length -1],halfeqn1["RHS"]," + ",adjustedeqn2coefficients[0],halfeqn2["LHS"]];
-  reduction_eqn = [adjustedeqn1coefficients[0],halfeqn1["LHS"],emolprod, adjustedeqn1coefficients[adjustedeqn1coefficients.length -1],halfeqn1["RHS"]];
-  oxidation_eqn = [adjustedeqn2coefficients[adjustedeqn2coefficients.length -1],halfeqn2["RHS"],emolprod,adjustedeqn2coefficients[0],halfeqn2["LHS"]];
-} else {
-  finaleqn = [adjustedeqn2coefficients[0],halfeqn2["LHS"]," + ",adjustedeqn1coefficients[adjustedeqn1coefficients.length -1],halfeqn1["RHS"]," \\rightleftharpoons ",adjustedeqn2coefficients[adjustedeqn2coefficients.length -1],halfeqn2["RHS"]," + ",adjustedeqn1coefficients[0],halfeqn1["LHS"]];
-  oxidation_eqn = [adjustedeqn1coefficients[0],halfeqn1["LHS"],emolprod, adjustedeqn1coefficients[adjustedeqn1coefficients.length -1],halfeqn1["RHS"]];
-  reduction_eqn = [adjustedeqn2coefficients[adjustedeqn2coefficients.length -1],halfeqn2["RHS"],emolprod,adjustedeqn2coefficients[0],halfeqn2["LHS"]];
-}
-//Build output dictionary by concatenating three string arrays*/
-
-output = {
-  "halfeqn1": 0,
-  "halfeqn2": 0,
+return output = {
+  "halfeqn1": heqn1,
+  "halfeqn2": heqn2,
   "halfeqn1E0": halfeqn1["E0"],
   "halfeqn2E0": halfeqn2["E0"],
-  "reduction_potential": 0,
-  "oxidation_potential": 0, 
-  "finaleqn": 0,
+  "reduction_potential": reduction_potential,
+  "oxidation_potential": oxidation_potential, 
+  "finaleqn": finaleqn,
   "reductioneqn": reduction_eqn,
   "oxidationeqn": oxidation_eqn,
   "emol": emolprod, 
   "DeltaE" : DeltaE
 };
-console.log(output)
