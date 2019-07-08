@@ -76,8 +76,8 @@ if (finalid==1){
   finaleqn = [adjustedeqn1coefficients[adjustedeqn1coefficients.length-1], halfeqn1["RHS"],"+",adjustedeqn2coefficients[0],halfeqn2["LHS"], "\\leftrightharpoons", adjustedeqn1coefficients[0], halfeqn1["LHS"], "+", adjustedeqn2coefficients[adjustedeqn2coefficients.length-1], halfeqn2["RHS"]].join("");
   reduction_potential = halfeqn2["E0"];
   oxidation_potential = halfeqn1["E0"];
-  oxidation_eqn = [adjustedeqn1coefficients[0], halfeqn1["LHS"],emolprod,adjustedeqn1coefficients[adjustedeqn1coefficients.length-1],halfeqn1["RHS"]];
-  reduction_eqn = [adjustedeqn2coefficients[adjustedeqn2coefficients.length-1], halfeqn2["RHS"],emolprod,adjustedeqn2coefficients[0], halfeqn2["LHS"]]
+  reduction_eqn = [adjustedeqn2coefficients[0], halfeqn2["LHS"],emolprod,adjustedeqn2coefficients[adjustedeqn2coefficients.length-1],halfeqn2["RHS"]];
+  oxidation_eqn = [adjustedeqn1coefficients[adjustedeqn1coefficients.length-1], halfeqn1["RHS"],emolprod,adjustedeqn1coefficients[0], halfeqn1["LHS"]];
   DeltaE = reduction_potential - oxidation_potential;
 }
 
@@ -92,6 +92,6 @@ return output = {
   "finaleqn": finaleqn,
   "reductioneqn": reduction_eqn,
   "oxidationeqn": oxidation_eqn,
-  "emol": HCF, 
+  "emol": emolprod/HCF, 
   "DeltaE" : DeltaE
 };
