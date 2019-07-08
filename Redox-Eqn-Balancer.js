@@ -72,7 +72,7 @@ return output = {
   "halfeqn1E0": halfeqn1["E0"],
   "halfeqn2E0": halfeqn2["E0"],
   "finaleqn": finaleqn.join(" "),
-  "emol": (halfeqn1["emol"]*halfeqn2["emol"])/HCF, 
+  "emol": (halfeqn1["emol"]*halfeqn2["emol"]), 
   "ids" : [id1, id2],
   "DeltaE" : DeltaE
 };
