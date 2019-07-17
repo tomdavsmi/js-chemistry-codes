@@ -1,4 +1,7 @@
 ## Redox Equation Balancer v1
+
+**This code has been completely superceded by _v2, and is only kept for posterity. DO NOT USE THIS CODE**
+
 This is a script designed to take two half equations (chosen at random) from the `half-equations.json` file, and ask the student to perform some kind of calculation with them. 
 
 It randomly selects two half equations (ensuring that id1 doesn't equal id2) and then goes on to construct the spontenous cell reaction from them. This is a simplification of reality but for basic question it should suffice. It then works out the overall cell equation by taking the most positive electrode potential (i.e. the *most* spontaneous reduction) and taking away the least positive electrode potential (i.e. the *least* spontaneous reduction).
