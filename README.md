@@ -2,6 +2,10 @@
 Scripts written in JS for doing random bits of chemistry in the Numbas system.
 **No affiliation with the official Numbas project/development team**
 
+The codes currently stored here are 
+- `Half-eqn-balancer v1`: an early attempt to create a code to randomly generate and balance cell equations, based on a list of random half-equations
+- `Half-eqn-balancer v2`: a complete rewrite of v1 which changed the aproach to generating the equations and increased the flexibility of the code. Also added a few extra features to make questions more realistic.
+
 ## half-equations.json
 The `half-equations.json` file contains a list of 30 simple electrochemical half-equations. By simple I refer to an equation in which a sigle species gains elctrons to product a single reduced species. **All equations in this document are written as reductions** i.e. M<sup>+</sup> + e<sup>-</sup> -> M. If oxidations are required then simply flip the order in which you call elements/concatenate. 
 
