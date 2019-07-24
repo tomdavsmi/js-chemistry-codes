@@ -6,7 +6,7 @@ The codes currently stored here are
 - `Half-eqn-balancer v1`: an early attempt to create a code to randomly generate and balance cell equations, based on a list of random half-equations
 - `Half-eqn-balancer v2`: a complete rewrite of v1 which changed the aproach to generating the equations and increased the flexibility of the code. Also added a few extra features to make questions more realistic.
 - `basis_set_praser+fn_calculator.js`: a code which can take STO-nG and l=mnoG (Pople split-valence) type basis sets, and calculate how many basis functions would be generated for model a simple organic molecule (containing atoms from, at present, the top row only). Can deal with * and ** variants, and can currently parse +/++ variants but these are not taken into account for calcualtions. 
--`Random_Organic_Molecular_Formulae.js1`: generates a randomised organic compound using the degrees of unsaturation formula. Specifically built for the basis set calculator. Generates only the molecular formula and makes no attempt at generating connectivity. 
+- `Random_Organic_Molecular_Formulae.js1`: generates a randomised organic compound using the degrees of unsaturation formula. Specifically built for the basis set calculator. Generates only the molecular formula and makes no attempt at generating connectivity. 
 
 ## half-equations.json
 The `half-equations.json` file contains a list of 30 simple electrochemical half-equations. By simple I refer to an equation in which a sigle species gains elctrons to product a single reduced species. **All equations in this document are written as reductions** i.e. M<sup>+</sup> + e<sup>-</sup> -> M. If oxidations are required then simply flip the order in which you call elements/concatenate. 
